@@ -1,34 +1,8 @@
 <html>
-
+<!-- http://rickharrison.github.io/validate.js/ -->
 	<head>
 		<title>Form Validation</title>
-		
-		<script type="text/javascript">
-			function validName(name){	
-				if(name == ''){
-					document.getElementById('nameError').innerHTML= "Hey Man. Fill out your name.";
-				}else{
-					
-					document.getElementById('nameError').innerHTML= "";
-				}
-			}
-			function validate(form){
-				name= form.name.value;
-				email= form.email.value;
-				subject= form.subject.value;
-				message= form.message.value;
-				if(name == ''){
-					document.getElementById('nameError').innerHTML= "Hey Man. Fill out your name.";
-				}
-				if(name == '' || email == '' || message == ''){
-					alert("You did not fill out all of the info");
-					return false;
-				}else{
-					return true;
-				}
-			}
-		</script>
-		
+		<script type="text/javascript" src="incl/validate.min.js"></script>				
 	</head>
 
 	<body>
@@ -42,10 +16,10 @@
 		}
 	?> 
 	
-		<form name="contact" method="post" onsubmit="return validate(this);">
+		<div id="errors"></div>
+		<form name="contact" method="post">
 			<div>
-				<span id="nameError"></span><br/>
-				<label for="name">Name:</label> <input type="text" name="name" onblur="validName(this.value);"/></div>
+				<label for="name">Name:</label> <input type="text" name="name" /></div>
 			<div><label for="email">Email:</label> <input type="email" name="email" /></div>
 			<div><label for="subject">Subject:</label> <input type="text" name="subject" /></div>
 			
@@ -54,5 +28,36 @@
 			</div>
 			<div><input type="submit" name="submit" value="Submit" /></div>
 		</form>
+		
+		
+		
+		<script type="text/javascript">
+			var validator = new FormValidator('contact', [{
+				    name: 'name',
+				    display: 'required',    
+				    rules: 'required'
+				}, {
+				    name: 'email',
+				    rules: 'required|valid_email'
+				}, {
+				    name: 'subject',
+				    rules: 'min_length[8]'
+				},{
+				    name: 'message',
+				    rules: 'required'
+				}], function(errors, event) {
+				    if (errors.length > 0) {
+				        var errorString = '';
+				        
+				        for (var i = 0, errorLength = errors.length; i < errorLength; i++) {
+				            errorString += errors[i].message + '<br />';
+				        }
+				        
+				        document.getElementById('errors').innerHTML = errorString;
+				    }   
+				});
+		</script>
+
+		
 	</body>
 </html>
