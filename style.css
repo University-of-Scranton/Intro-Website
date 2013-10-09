@@ -5,6 +5,11 @@ body{
 	color: #666666;
 	font-size: 62.5%; /* 62.5% of 16px (~10px) */
 	text-align: center;
+	font-family: 'Roboto Slab', serif;
+	}
+	
+h1,h2,h3{
+	font-family: 'Bubbler One', sans-serif;
 	}
 	
 	
@@ -13,6 +18,29 @@ body{
 	font-size: 2em;
 	text-align: left;
 	/* width: 6.25em;  100px (target) / 16px (base) = 6.25em */
-}
+	}
+
+.big{
+	font-size: 4em;
+	}
+	
+.colorful{
+	background: #00FF00;
+	color: #d0e7fd;
+	}
+	
+.left-transform{
+	-webkit-transform: rotate(30deg);
+	-moz-transform: rotate(30deg);
+	-o-transform: rotate(30deg);
+	transform: rotate(30deg);
+	}
+	
+.right-transform{
+	-webkit-transform: rotate(-30deg);
+	-moz-transform: rotate(-30deg);
+	-o-transform: rotate(-30deg);
+	transform: rotate(-30deg);
+	}
 	
 	
