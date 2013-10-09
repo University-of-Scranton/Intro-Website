@@ -2,4 +2,4 @@ DATABASE INFORMATION
 Host:  127.0.0.1
 DB Name:  casabonaj2
 User:  casabonaj2
-Pass:  Wrum4buFRUKed2dr
+Pass: jkvhkldvjkl
